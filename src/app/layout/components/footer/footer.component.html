@@ -1,0 +1,22 @@
+<mat-toolbar>
+
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutAlign.gt-xs="space-between center" fxFlex>
+
+        <a href="/pages/pricing/style-1"
+           target="_blank" mat-button class="pink" fxFlex="0 0 auto" fxLayout="row"
+           fxLayoutAlign="start center">
+            <mat-icon class="s-16 mr-sm-4">shopping_cart</mat-icon>
+            <span>Купить PRO аккаунт</span>
+        </a>
+
+        <div fxLayout="row" fxLayoutAlign="start center" fxHide fxShow.gt-xs>
+            <a mat-button routerLink="">Оферта</a>
+            <span>&bull;</span>
+            <a mat-button routerLink="">Пользовательское соглашение</a>
+            <span>&bull;</span>
+            <a mat-button routerLink="">Политика конфиденциальности</a>
+        </div>
+
+    </div>
+
+</mat-toolbar>

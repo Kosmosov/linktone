@@ -1,0 +1,95 @@
+<div id="login" class="inner-scroll" fxLayout="row" fxLayoutAlign="start">
+
+    <div id="login-intro" fxFlex fxHide fxShow.gt-xs>
+
+        <div class="logo" [@animate]="{value:'*',params:{scale:'0.2'}}">
+            <img src="assets/images/logos/fuse.svg">
+        </div>
+
+        <div class="title" [@animate]="{value:'*',params:{delay:'50ms',y:'25px'}}">
+            Добро пожаловать в LINKTONE!
+        </div>
+
+        <div class="description" [@animate]="{value:'*',params:{delay:'100ms',y:'25px'}}">
+            Первую в истории систему управления музыкальным бизнесом. Полная автоматизация всех процессов и уникальная возможность артистам любого уровня продвигать свое творчество на профессиональном уровне.
+        </div>
+
+    </div>
+
+    <div id="login-form-wrapper" fusePerfectScrollbar
+         [@animate]="{value:'*',params:{delay:'300ms',x:'100%'}}">
+
+        <div id="login-form">
+
+            <div class="logo" fxHide.gt-xs>
+                <img src="assets/images/logos/fuse.svg">
+            </div>
+
+            <div class="title">Войдите в свой аккаунт</div>
+
+            <form name="loginForm" [formGroup]="loginForm" novalidate>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Почта</mat-label>
+                    <input matInput formControlName="email">
+                    <mat-icon matSuffix class="secondary-text">mail</mat-icon>
+                    <mat-error *ngIf="loginForm.get('email').hasError('required')">
+                        Почта не указана
+                    </mat-error>
+                    <mat-error
+                        *ngIf="!loginForm.get('email').hasError('required') &&
+                                loginForm.get('email').hasError('email')">
+                        Введите корректный адрес почты
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Пароль</mat-label>
+                    <input matInput type="password" formControlName="password">
+                    <mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
+                    <mat-error>
+                        Пароль не указан
+                    </mat-error>
+                </mat-form-field>
+
+                <div class="remember-forgot-password" fxLayout="row" fxLayout.xs="column"
+                     fxLayoutAlign="space-between center">
+                    <mat-checkbox class="remember-me" aria-label="Remember Me">
+                        Запомнить меня
+                    </mat-checkbox>
+
+                    <a class="forgot-password" [routerLink]="'/pages/auth/forgot-password-2'">
+                        Забыли пароль?
+                    </a>
+                </div>
+
+                <button mat-raised-button color="accent" class="submit-button" aria-label="ВОЙТИ"
+                        [disabled]="loginForm.invalid">
+                    ВОЙТИ
+                </button>
+
+            </form>
+
+            <div class="separator">
+                <span class="text">ИЛИ</span>
+            </div>
+
+            <div fxLayout="column" fxLayoutAlign="start center">
+
+                <button mat-raised-button class="google">
+                    Войдите через Google
+                </button>
+
+                <button mat-raised-button class="facebook">
+                    Войдите через Facebook
+                </button>
+
+            </div>
+
+            <div class="register" fxLayout="column" fxLayoutAlign="center center">
+                <span class="text">Еще нет аккаунта?</span>
+                <a class="link" [routerLink]="'/pages/auth/register-2'">Зарегистрируйтесь</a>
+            </div>
+        </div>
+    </div>
+</div>
